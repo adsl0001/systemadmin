@@ -63,9 +63,9 @@
 		$(document).ready(function() {
 			$.initHtml = function(obj) {
 				$("#cpuRatio").html((obj.cpuRatio*100).toFixed(2)+"%");
-				$("#totalMemorySize").html(obj.totalMemorySize);
-				$("#usedMemory").html(obj.usedMemory);
-				$("#freeMemory").html(obj.freeMemory);
+				$("#totalMemorySize").html(obj.totalMemory+"MB");
+				$("#usedMemory").html(obj.usedMemory+"MB");
+				$("#freeMemory").html(obj.freeMemory+"MB");
 			}
 			$.asubmit = function() {
 				$.ajax({
