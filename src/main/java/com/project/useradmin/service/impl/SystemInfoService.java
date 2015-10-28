@@ -53,9 +53,17 @@ public class SystemInfoService implements ISystemInfoService {
 	 * 请求的路径
 	 */
 	@Value("${remotePath}")
-	private static String path;
+	private   String path;
 
  
+	public   String getPath() {
+		return path;
+	}
+
+	public   void setPath(String path) {
+		 this.path = path;
+	}
+
 	@Override
 	public String getServerPort(String protocol) {
 		MBeanServer mBeanServer = null;
