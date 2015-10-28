@@ -69,7 +69,7 @@
 			}
 			$.asubmit = function() {
 				$.ajax({
-					url : basePath + "system/systemInfo/getSystemInfo1.do",
+					url : basePath + "system/systemInfo/getSystemInfo.do",
 					data : {
 						time : new Date()
 					},
