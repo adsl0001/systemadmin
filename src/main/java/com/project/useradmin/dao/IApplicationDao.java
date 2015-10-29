@@ -1,6 +1,6 @@
 package com.project.useradmin.dao;
 
-import com.project.useradmin.model.Application;
+import com.project.model.Application;
 
 /**
  * application数据访问接口

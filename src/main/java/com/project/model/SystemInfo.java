@@ -1,4 +1,4 @@
-package com.project.useradmin.model;
+package com.project.model;
 
 /**
  * 系统信息

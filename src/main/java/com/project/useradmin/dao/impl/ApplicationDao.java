@@ -8,8 +8,8 @@ import javax.annotation.Resource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.project.model.Application;
 import com.project.useradmin.dao.IApplicationDao;
-import com.project.useradmin.model.Application;
 
 /**
  * IApplicationDao实现类

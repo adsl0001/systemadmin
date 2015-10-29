@@ -22,7 +22,7 @@ public class HttpUtil {
 	 * @Param msg 参数
 	 */
 
-	public static String postMessage(String url, String msg) {
+	public static String postMessage(String url, String msg,String sessionId) {
 		String data = null;
 		try {
 			URL dataUrl = new URL(url);
@@ -32,6 +32,7 @@ public class HttpUtil {
 			con.setRequestProperty("user-agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
 			con.setRequestMethod("POST");
+			con.addRequestProperty( "Cookie",  "sessionId="+sessionId);
 			con.setDoOutput(true);
 			con.setDoInput(true);
 			OutputStream os = con.getOutputStream();

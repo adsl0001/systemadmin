@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.project.useradmin.model.Application;
+import com.project.model.Application;
 import com.project.useradmin.service.IApplicationService;
 import com.project.useradmin.service.ISystemInfoService;
 

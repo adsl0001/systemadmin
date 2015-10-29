@@ -24,8 +24,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.project.useradmin.model.Application;
-import com.project.useradmin.model.SystemInfo;
+import com.project.model.Application;
+import com.project.model.SystemInfo;
 import com.project.useradmin.service.IApplicationService;
 import com.project.useradmin.service.ISystemInfoService;
 import com.project.useradmin.utils.HttpUtil;
@@ -48,7 +48,8 @@ public class SystemInfoService implements ISystemInfoService {
 	/**
 	 * 注册的系统管理应用名称
 	 */
-	private static String remoteApplicationName = "application.userAdmin";
+	@Value("${remoteApplicationName}")
+	private   String remoteApplicationName ;
 	/**
 	 * 请求的路径
 	 */
@@ -135,13 +136,17 @@ public class SystemInfoService implements ISystemInfoService {
 	}
 
 	@Override
-	public String getSystemInfo( ) {
+	public String getSystemInfo(String sessionId ) {
 		Application application = this.applicationService
 				.getApplication(remoteApplicationName);
 		if (application == null) {
 			return "未找到在线的系统管理服务器";
 		}
-		return HttpUtil.postMessage(this.getServiceUrl(application), "");
+		String data = HttpUtil.postMessage(this.getServiceUrl(application), "",sessionId);
+		if (data==null) {
+			return "未获取到远程数据";
+		}
+		return data;
 	}
 	/**
 	 * 获取服务url

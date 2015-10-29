@@ -1,7 +1,7 @@
 package com.project.useradmin.service;
 
-import com.project.useradmin.model.Application;
-import com.project.useradmin.model.SystemInfo;
+import com.project.model.Application;
+import com.project.model.SystemInfo;
 
 /**
  * 系统信息服务接口
@@ -15,9 +15,11 @@ public interface ISystemInfoService {
 	 * 
 	 * @param application
 	 *            系统管理系统的应用信息
+	 * @param sessionId
+	 *            传递sessionId，用于会话
 	 * @return 系统管理的系统信息json串
 	 */
-	public String getSystemInfo();
+	public String getSystemInfo(String sessionId);
 
 	/**
 	 * 获取服务端口
@@ -35,5 +37,4 @@ public interface ISystemInfoService {
 	 */
 	public String getIp();
 
- 
 }

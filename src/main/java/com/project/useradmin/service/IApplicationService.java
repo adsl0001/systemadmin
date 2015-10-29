@@ -1,6 +1,6 @@
 package com.project.useradmin.service;
 
-import com.project.useradmin.model.Application;
+import com.project.model.Application;
 
 /**
  * 应用信息服务接口

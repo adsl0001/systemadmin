@@ -4,8 +4,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.project.model.Application;
 import com.project.useradmin.dao.IApplicationDao;
-import com.project.useradmin.model.Application;
 import com.project.useradmin.service.IApplicationService;
 /**
  * 应用信息服务类

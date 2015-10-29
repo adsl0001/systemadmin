@@ -41,6 +41,10 @@ public class LoginAction extends AbsBaseStruts2Action {
 		if (loginStatus) {
 			this.getRequest().getSession()
 					.setAttribute(LoginFilter.USERNAME, username);
+			this.getRequest()
+					.getSession()
+					.setAttribute("sessionId",
+							this.getRequest().getSession().getId());
 			this.sendSuccess();
 		} else {
 			this.sendError("用户名或密码不正确，请修改后重试！");

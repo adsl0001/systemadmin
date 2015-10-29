@@ -13,6 +13,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.ContextLoader;
+
+import com.project.useradmin.dao.impl.SessionDao;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -82,11 +86,13 @@ public class LoginFilter implements Filter {
 								+ "/login.jsp");
 				} else {
 					// 已登录直接放行
+					SessionDao sessionDao = (SessionDao) ContextLoader.getCurrentWebApplicationContext()
+						.getBean("sessionDao");
+					sessionDao.saveSession(httpRequest.getSession());
 					filterChain.doFilter(request, response);
 				}
 			}
 		}
-
 	}
 
 	/**
@@ -104,14 +110,14 @@ public class LoginFilter implements Filter {
 		} else {
 			object = JSONObject.fromObject(obj);
 		}
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html");
 		PrintWriter writer = null;
 		try {
 			writer = response.getWriter();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		response.setCharacterEncoding("GBK");
-		response.setContentType("text/html");
 		writer.write(object.toString());
 		writer.flush();
 		writer.close();
